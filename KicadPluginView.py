@@ -1,9 +1,10 @@
 import wx
 from .MainView import MainView
+from .LocalExportView import LocalExportView
 
 class KiCadPluginView(wx.Frame):
     def __init__(self, parent=None):
-        super().__init__(parent, title="Android project explorer", size=(400, 300))
+        super().__init__(parent, title="Android project exporter", size=(600, 500))
 
         self.main_panel = wx.Panel(self)
         self.main_sizer = wx.BoxSizer(wx.VERTICAL)
@@ -15,12 +16,25 @@ class KiCadPluginView(wx.Frame):
     def show_main_view(self):
         self.switch_view(MainView)
 
-    def switch_view(self, new_view_class):
+    def switch_view(self, new_view_class, project_name=None, schematics=None, pcbs=None, glbs=None):
         # Töröljük a korábbi panelt
         for child in self.main_panel.GetChildren():
             child.Destroy()
 
-        # Új nézet betöltése
-        self.current_view = new_view_class(self.main_panel, controller=self)
+        if new_view_class == LocalExportView:
+            self.current_view = new_view_class(
+                self.main_panel,
+                controller=self,
+                project_name=project_name,
+                schematics=schematics,
+                pcbs=pcbs,
+                glbs=glbs
+            )
+        else:
+            self.current_view = new_view_class(
+                self.main_panel,
+                controller=self
+            )
+
         self.main_sizer.Add(self.current_view, 1, wx.EXPAND)
         self.main_panel.Layout()

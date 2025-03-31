@@ -7,6 +7,7 @@ from functools import partial
 
 from .LocalExportView import LocalExportView
 from .CloudExportView import CloudExportView
+from .PcbToGlbView import PcbToGlbView
 from .Schematic import Schematic
 from .PcbDoc import PcbDoc
 from .GlbModel import GlbModel
@@ -36,22 +37,22 @@ class MainView(wx.Panel):
 
         board = pcbnew.GetBoard()
         pcb_file_path = board.GetFileName()
-        project_dir = os.path.dirname(pcb_file_path)
-        project_name = os.path.splitext(os.path.basename(pcb_file_path))[0]
-        name_label = wx.StaticText(self, label=f"Project name: {project_name}")
+        self.project_dir = os.path.dirname(pcb_file_path)
+        self.project_name = os.path.splitext(os.path.basename(pcb_file_path))[0]
+        name_label = wx.StaticText(self, label=f"Project name: {self.project_name}")
 
 
 
         self.vbox.Add(name_label, 0, wx.ALL | wx.CENTER, 5)
 
         # Load Schematics
-        self.load_schematics(project_dir)
+        self.load_schematics(self.project_dir)
 
         # Load pcbs
-        self.load_pcbs(project_dir)
+        self.load_pcbs(self.project_dir)
 
         # Load glbs
-        self.load_glbs(project_dir)
+        self.load_glbs(self.project_dir)
 
         # empty spacce
         self.vbox.AddStretchSpacer()
@@ -76,7 +77,18 @@ class MainView(wx.Panel):
         self.button2.Bind(wx.EVT_BUTTON, self.on_button2_click)
 
     def on_button1_click(self, event):
-        self.controller.switch_view(LocalExportView)
+        selected_schematics = [s for s in self.schematics_list if s.isExporting]
+        selected_pcbs = [p for p in self.pcb_list if p.isExporting]
+        selected_glbs = [g for g in self.glb_list if g.isExporting]
+
+        # Továbbítjuk az adatokat a LocalExportView-hoz
+        self.controller.switch_view(
+            LocalExportView,
+            project_name = self.project_name,
+            schematics=selected_schematics,
+            pcbs=selected_pcbs,
+            glbs=selected_glbs
+        )
 
     def on_button2_click(self, event):
         self.controller.switch_view(CloudExportView)
@@ -204,5 +216,8 @@ class MainView(wx.Panel):
 
     # Export to glb the pcb
     def on_export_single_pcb(self, event, pcb_doc):
-        wx.MessageBox(f"Exportálva: {pcb_doc.pcbDocName}", "Export", wx.OK | wx.ICON_INFORMATION)
+        #wx.MessageBox(f"Exportálva: {pcb_doc.pcbDocName}", "Export", wx.OK | wx.ICON_INFORMATION)
+        dlg = PcbToGlbView(self, pcb_doc, self.project_dir)
+        dlg.ShowModal()  # vagy dlg.Show() ha nem modálisan akarod
+        dlg.Destroy()
         self.controller.show_main_view()

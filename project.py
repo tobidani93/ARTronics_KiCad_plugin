@@ -20,7 +20,7 @@ class ARTronics_plugin(pcbnew.ActionPlugin):
         """Executed when the plugin is triggered"""
         board = pcbnew.GetBoard()
         num_tracks = len(board.GetTracks())
-        wx.MessageBox(f"The PCB has {num_tracks} tracks!", "ARTronics_plugin")
+        #wx.MessageBox(f"The PCB has {num_tracks} tracks!", "ARTronics_plugin")
 
 
         self.window = KiCadPluginView()

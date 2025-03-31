@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3e6c4f3-c9b0-459d-8ae4-03e98dfb4cd8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CloudExportView.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GlbModel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KicadPluginView.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LocalExportView.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainView.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PcbDoc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Schematic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest_api_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ARTronics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ARTronics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c3e6c4f3-c9b0-459d-8ae4-03e98dfb4cd8" name="Changes" comment="Project views setup, rest_api_server">
+      <change afterPath="$PROJECT_DIR$/UdpServer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KicadPluginView.py" beforeDir="false" afterPath="$PROJECT_DIR$/KicadPluginView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LocalExportView.py" beforeDir="false" afterPath="$PROJECT_DIR$/LocalExportView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainView.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcbToGlbView.py" beforeDir="false" afterPath="$PROJECT_DIR$/PcbToGlbView.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest_api_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_api_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,22 +61,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.step_to_glb_exporter.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/danieltobias/Documents/KiCad/9.0/scripting/plugins/ARTronics",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step_to_glb_exporter.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/danieltobias/Documents/KiCad/9.0/scripting/plugins/ARTronics&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -136,12 +130,26 @@
       <workItem from="1741731413299" duration="2766000" />
       <workItem from="1742159118363" duration="8002000" />
       <workItem from="1742403204221" duration="6875000" />
-      <workItem from="1742822926040" duration="16283000" />
+      <workItem from="1742822926040" duration="21131000" />
+      <workItem from="1743019728074" duration="17017000" />
     </task>
+    <task id="LOCAL-00001" summary="Project views setup, rest_api_server">
+      <option name="closed" value="true" />
+      <created>1742855325445</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742855325446</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project views setup, rest_api_server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project views setup, rest_api_server" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ARTronics$main.coverage" NAME="main Coverage Results" MODIFIED="1742846689200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
