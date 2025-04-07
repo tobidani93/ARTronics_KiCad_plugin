@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3e6c4f3-c9b0-459d-8ae4-03e98dfb4cd8" name="Changes" comment="Project views setup, rest_api_server">
-      <change afterPath="$PROJECT_DIR$/UdpServer.py" afterDir="false" />
+    <list default="true" id="c3e6c4f3-c9b0-459d-8ae4-03e98dfb4cd8" name="Changes" comment="Local exporter: rest_api">
+      <change afterPath="$PROJECT_DIR$/ImageFile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render_kicad_png.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KicadPluginView.py" beforeDir="false" afterPath="$PROJECT_DIR$/KicadPluginView.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LocalExportView.py" beforeDir="false" afterPath="$PROJECT_DIR$/LocalExportView.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainView.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainView.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PcbToGlbView.py" beforeDir="false" afterPath="$PROJECT_DIR$/PcbToGlbView.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_api_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +128,8 @@
       <workItem from="1742159118363" duration="8002000" />
       <workItem from="1742403204221" duration="6875000" />
       <workItem from="1742822926040" duration="21131000" />
-      <workItem from="1743019728074" duration="17017000" />
+      <workItem from="1743019728074" duration="19104000" />
+      <workItem from="1743862684129" duration="6211000" />
     </task>
     <task id="LOCAL-00001" summary="Project views setup, rest_api_server">
       <option name="closed" value="true" />
@@ -141,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742855325446</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Local exporter: rest_api">
+      <option name="closed" value="true" />
+      <created>1743458897835</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743458897835</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +155,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project views setup, rest_api_server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project views setup, rest_api_server" />
+    <MESSAGE value="Local exporter: rest_api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Local exporter: rest_api" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ARTronics$main.coverage" NAME="main Coverage Results" MODIFIED="1742846689200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

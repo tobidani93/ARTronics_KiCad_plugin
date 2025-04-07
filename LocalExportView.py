@@ -65,6 +65,7 @@ class LocalExportView(wx.Panel):
             vbox.Add(glb)
 
 
+
         #Start server button
         #hbox = wx.BoxSizer(wx.HORIZONTAL)
         self.exportButton = wx.Button(self, label="Start export")
@@ -76,6 +77,8 @@ class LocalExportView(wx.Panel):
 
         self.SetSizer(vbox)
         self.Bind(wx.EVT_WINDOW_DESTROY, self.on_destroy)
+
+
 
     def on_back(self, event):
         # stop rest server
