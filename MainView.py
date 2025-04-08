@@ -154,6 +154,7 @@ class MainView(wx.Panel):
         selected_schematics = [s for s in self.schematics_list if s.isExporting]
         selected_pcbs = [p for p in self.pcb_list if p.isExporting]
         selected_glbs = [g for g in self.glb_list if g.isExporting]
+        selected_images = [g for g in self.image_list if g.isExporting]
 
         # Továbbítjuk az adatokat a LocalExportView-hoz
         self.controller.switch_view(
@@ -161,7 +162,8 @@ class MainView(wx.Panel):
             project_name = self.project_name,
             schematics=selected_schematics,
             pcbs=selected_pcbs,
-            glbs=selected_glbs
+            glbs=selected_glbs,
+            images=selected_images,
         )
 
     def on_button2_click(self, event):

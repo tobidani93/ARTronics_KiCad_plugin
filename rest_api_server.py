@@ -7,6 +7,7 @@ from flask import Flask, send_file, request, jsonify, make_response
 import threading
 import os
 
+from .ImageFile import ImageFile
 from .GlbModel import GlbModel
 from .PcbDoc import PcbDoc
 from .Schematic import Schematic
@@ -17,14 +18,16 @@ class FileType(Enum):
     PCB = "pcb"
     MODEL = "model"
     DOC = "doc"
+    IMAGE = "image"
 
 class KiCadRestApiServer:
-    def __init__(self, project_name: string, base_path: string, schematics: List[Schematic], pcbs: List[PcbDoc], models: List[GlbModel], docs=None):
+    def __init__(self, project_name: string, base_path: string, schematics: List[Schematic], pcbs: List[PcbDoc], models: List[GlbModel], images: List[ImageFile], docs=None):
         self.project_name = project_name
         self.base_path = base_path
         self.schematics = schematics
         self.pcbs = pcbs
         self.models = models
+        self.images = images
         self.docs = docs if docs else []
 
         self.port = self._find_free_port(5000, 5100)
@@ -58,7 +61,8 @@ class KiCadRestApiServer:
                 "projectName": self.project_name,
                 "schematics": [s.schematicName for s in self.schematics],
                 "pcbs": [p.pcbDocName for p in self.pcbs],
-                "models": [m.glbName for m in self.models]
+                "models": [m.glbName for m in self.models],
+                "images": [i.name for i in self.images],
             })
 
         @self.app.route("/schematic", methods=["GET"])
@@ -77,6 +81,10 @@ class KiCadRestApiServer:
         def get_doc():
             return self._send_file_by_name(request.args.get("name"), FileType.DOC)
 
+        @self.app.route("/image", methods=["GET"])
+        def get_image():
+            return self._send_file_by_name(request.args.get("name"), FileType.IMAGE)
+
     def _send_file_by_name(self, name,  file_type: FileType):
         #if not name or name not in file_list:
         #    return make_response(f"File '{name}' not found.", 404)
@@ -90,8 +98,8 @@ class KiCadRestApiServer:
             path_attr = "schematicPath"
         elif file_type == FileType.PCB:
             file_list = self.pcbs
-            search_attr = "pcbName"
-            path_attr = "pcbPath"
+            search_attr = "pcbDocName"
+            path_attr = "pcbDocPath"
         elif file_type == FileType.MODEL:
             file_list = self.models
             search_attr = "glbName"
@@ -100,6 +108,10 @@ class KiCadRestApiServer:
             file_list = self.docs
             search_attr = "docName"
             path_attr = "docPath"
+        elif file_type == FileType.IMAGE:
+            file_list = self.images
+            search_attr = "name"
+            path_attr = "path"
         else:
             return make_response("Invalid file type", 400)
 

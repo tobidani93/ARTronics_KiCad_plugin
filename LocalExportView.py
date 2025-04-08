@@ -1,5 +1,4 @@
 import string
-from cProfile import label
 from typing import List
 
 import wx
@@ -7,6 +6,7 @@ import pcbnew
 import os
 from pyassimp.structs import String
 
+from .ImageFile import ImageFile
 from .GlbModel import GlbModel
 from .PcbDoc import PcbDoc
 from .Schematic import Schematic
@@ -15,7 +15,7 @@ from .UdpServer import udp_server
 
 
 class LocalExportView(wx.Panel):
-    def __init__(self, parent, controller, project_name: string, schematics: List[Schematic], pcbs: List[PcbDoc], glbs: List[GlbModel]):
+    def __init__(self, parent, controller, project_name: string, schematics: List[Schematic], pcbs: List[PcbDoc], glbs: List[GlbModel], images: List[ImageFile]):
         super().__init__(parent)
         self.controller = controller
         self.restServer = None
@@ -24,6 +24,7 @@ class LocalExportView(wx.Panel):
         self.schematics = schematics
         self.pcbs = pcbs
         self.glbs = glbs
+        self.images = images
         self.server_url = ""
         vbox = wx.BoxSizer(wx.VERTICAL)
 
@@ -64,6 +65,13 @@ class LocalExportView(wx.Panel):
             glb = wx.StaticText(self, label="No glb file")
             vbox.Add(glb)
 
+        for im in images:
+            im1 = wx.StaticText(self, label=f"{im.name}")
+            vbox.Add(im1)
+
+        for pcb in pcbs:
+            pcb_text = wx.StaticText(self, label=f"{pcb.pcbDocName}")
+            vbox.Add(pcb_text)
 
 
         #Start server button
@@ -98,6 +106,7 @@ class LocalExportView(wx.Panel):
                 schematics=self.schematics,
                 pcbs=self.pcbs,
                 models=self.glbs,
+                images=self.images
             )
             self.restServer.start()
             self.server_url = self.restServer.get_url()
